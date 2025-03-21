@@ -22,10 +22,15 @@ export default {
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'],
 			limit: 0,
     }),
-		postcss({
-      extract: 'index.css',
-      minimize: true,
-      plugins: [cssnano()],
+    postcss({
+      include: ['**/*.css'],
+      extract: true,
+      inject: true,
+      modules: false,
+			plugins: [
+        postcssImport(),
+				cssnano()
+      ],
     }),
     resolve({ extensions: ['.js', '.jsx'] }),
     commonjs(),

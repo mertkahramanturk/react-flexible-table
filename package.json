@@ -1,7 +1,7 @@
 {
   "name": "react-flexible-table",
   "description": "A highly customizable and flexible table component for React",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
