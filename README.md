@@ -29,10 +29,6 @@ To install react-flexible-table with `npm`:
 
     npm install react-flexible-table
 
-To install react-flexible-table with `yarn`:
-
-    yarn add material-table @material-ui/core
-
 ## Types / General Table Props
 
 
