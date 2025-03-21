@@ -1,17 +1,23 @@
 {
   "name": "react-flexible-table",
   "description": "A highly customizable and flexible table component for React",
-  "version": "1.0.0",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "version": "1.0.3",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "type": "module",
+  "files": [
+    "dist",
+		"README.md",
+    "package.json",
+		"LICENSE.md"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-		"predeploy": "npm run build-storybook",
- 		"deploy": "gh-pages -d storybook-static"
+    "predeploy": "npm run build-storybook",
+    "deploy": "gh-pages -d storybook-static"
   },
   "peerDependencies": {
     "react": ">=16.x",
@@ -19,8 +25,6 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
-    "framer-motion": "^12.5.0",
-    "lodash": "^4.17.21",
     "prop-types": "^15.8.1"
   },
   "devDependencies": {

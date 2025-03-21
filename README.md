@@ -194,7 +194,7 @@ Here is a basic example of using react-flexible-table within a react application
 import { useCallback } from "react";
 import "./App.css";
 import { FlexibleTable } from "react-flexible-table";
-import "../node_modules/react-flexible-table/dist/index.cjs.css";
+import "../node_modules/react-flexible-table/dist/index.css"; or import "react-flexible-table/dist/index.css";
 import data from "./test-data.json";
 import InfoIcon from "./info-circle.svg";
 const table_columns = [

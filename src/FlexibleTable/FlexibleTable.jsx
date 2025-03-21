@@ -10,15 +10,13 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import Pagination from "../components/Pagination";
-import { debounce } from 'lodash';
+import { debounce } from '../utils/debounce';
 import SearchIcon from "../assets/Search";
-
-import { motion, AnimatePresence } from "framer-motion";
 import ChevronUp from "../assets/ChevronUp";
 import ChevronDown from "../assets/ChevronDown";
 import ChevronRight from "../assets/ChevronRight";
 import Spinner from "../components/Spinner";
-
+import '../index.css'
 const FlexibleTable = ({
 	columns = [],
 	data = [],
@@ -386,24 +384,15 @@ const FlexibleTable = ({
 												</td>
 											)}
 										</tr>
-										<AnimatePresence initial={false}>
 											{expandedRows.includes(index) && (
-												<motion.tr
-													key={row.id}
-													className="table-detail"
-													initial={{ opacity: 0, height: 0 }}
-													animate={{ opacity: 1, height: "auto" }}
-													exit={{ opacity: 0, height: 0 }}
-													transition={{ duration: 0.2 }}
-												>
+												<tr className="table-detail table-detail-animated" key={index} >
 													<td colSpan={columns.length + (actions ? 1 : 0)} className="px-0 py-0" onClick={(e) => e.stopPropagation()}>
 														<div className="table-detail-wrapper">
 															{tableDetail && tableDetail(row)}
 														</div>
 													</td>
-												</motion.tr>
+												</tr>
 											)}
-										</AnimatePresence>
 									</React.Fragment>
 								))
 								:  <tr>

@@ -5,36 +5,27 @@ import babel from '@rollup/plugin-babel';
 import pkg from './package.json' assert { type: 'json' };
 import postcss from 'rollup-plugin-postcss';
 import postcssImport from 'postcss-import';
+import cssnano from 'cssnano';
 
 export default {
   input: 'src/index.js',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true,
-      exports: 'named'
-    },
+  output:
     {
       file: pkg.module,
       format: 'esm',
-      sourcemap: true,
+      sourcemap: false,
       exports: 'named'
-    }
-  ],
+    },
   external: [...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     url({
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.gif'],
+			limit: 0,
     }),
-    postcss({
-      include: ['**/*.css'],
-      extract: true,
-      inject: true,
-      modules: false,
-			plugins: [
-        postcssImport() 
-      ],
+		postcss({
+      extract: 'index.css',
+      minimize: true,
+      plugins: [cssnano()],
     }),
     resolve({ extensions: ['.js', '.jsx'] }),
     commonjs(),
