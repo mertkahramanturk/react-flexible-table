@@ -1,0 +1,94 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  width: fit-content;
+  border-radius: 20px;
+}
+
+.pagination-button {
+  width: 28px;
+  height: 30px;
+  min-width: 28px;
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+}
+
+.page-number {
+  cursor: pointer;
+  color: #0f0f0f;
+  transition: all ease-in 0.2s;
+  width: 28px;
+  height: 30px;
+  min-width: 28px;
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-number.active {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.page-number.active:hover {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.page-number:hover {
+  background-color: #f8f9fa;
+  color: #0f0f0f;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-item .page-link {
+  padding: 0.5rem 0.75rem;
+  color: #0f0f0f;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.page-item .page-link:hover {
+  background-color: #f8f9fa;
+}
+
+.page-item .page-link.active {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.page-item .page-link.disabled {
+  cursor: not-allowed;
+  color: #6c757d;
+}
+
+.gap-2{
+	gap: 0.5rem;
+}
+.d-flex{
+	display: flex;
+}
+.justify-content-center{
+	justify-content: center;
+}
+.align-items-center{
+	align-items: center;
+}
+.flex-wrap{
+	flex-wrap: wrap;
+}
+.text-primary{
+	color: #0f0f0f;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
