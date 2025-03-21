@@ -1,3 +1,3 @@
 import './index.css'; 
 
-export { default as FlexibleTable } from './Table';
+export { default as FlexibleTable } from './FlexibleTable';
