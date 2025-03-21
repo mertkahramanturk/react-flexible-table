@@ -11,7 +11,9 @@
 A highly customizable and flexible table component for React
 
 </div>
+## Support buymeacoffee
 
+[buymeacoffee](https://buymeacoffee.com/kahramantue)
 ## Demo and documentation
 
 You can access all code examples and documentation on site https://mertkahramanturk.github.io/react-flexible-table/?path=/story/components-flexibletable--basic
