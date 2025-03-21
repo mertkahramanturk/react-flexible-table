@@ -370,7 +370,6 @@ ReactDOM.render(<App />, document.getElementById("react-div"));
 
 ### Code Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute](https://github.com/mbrn/material-table/blob/master/.github/CONTRIBUTING.md)].
 <a href="https://github.com/mertkahramanturk/react-flexible-table/graphs/contributors"><img style="border-radius: 2000px" src="https://avatars.githubusercontent.com/u/84500180?v=4&size=64" /></a>
 
 ## License
