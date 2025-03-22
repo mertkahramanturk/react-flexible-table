@@ -70,25 +70,3 @@
   cursor: not-allowed;
   color: #6c757d;
 }
-
-.gap-2{
-	gap: 0.5rem;
-}
-.d-flex{
-	display: flex;
-}
-.justify-content-center{
-	justify-content: center;
-}
-.align-items-center{
-	align-items: center;
-}
-.flex-wrap{
-	flex-wrap: wrap;
-}
-.text-primary{
-	color: #0f0f0f;
-}
-.cursor-pointer{
-	cursor: pointer;
-}

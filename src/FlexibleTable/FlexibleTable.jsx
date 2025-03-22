@@ -11,12 +11,17 @@ import React, {
 import PropTypes from "prop-types";
 import Pagination from "../components/Pagination";
 import { debounce } from '../utils/debounce';
+import { exportToExcel } from '../utils/exportToExcel';
+import { exportToPdf } from '../utils/exportToPdf';
 import SearchIcon from "../assets/Search";
 import ChevronUp from "../assets/ChevronUp";
 import ChevronDown from "../assets/ChevronDown";
 import ChevronRight from "../assets/ChevronRight";
+import ExcelIcon from "../assets/Excel";
+import PdfIcon from "../assets/Pdf";
 import Spinner from "../components/Spinner";
 import '../index.css'
+
 const FlexibleTable = ({
 	columns = [],
 	data = [],
@@ -24,8 +29,8 @@ const FlexibleTable = ({
 	pagination = false,
 	onRowClick = undefined,
 	changePage = () => { },
-	changePageSize = () => { },
-	setFilter = () => { },
+	changePageSize = () => {},
+	setFilter = () => {},
 	page: externalPage = 1,
 	pageSize: externalPageSize = 10,
 	totalItems = 0,
@@ -41,7 +46,12 @@ const FlexibleTable = ({
 	handleMultiSelect = null,
 	previousData = [],
 	loadingComponent = null,
-	stickyHeader = false
+	stickyHeader = false,
+	internalExportPdf = false,
+	internalExportExcel = false,
+	externalExportPdf = undefined,
+	externalExportExcel = undefined,
+	exportButtonLocation = "end"
 }) => {
 
 	const [sortConfig, setSortConfig] = React.useState(null);
@@ -205,6 +215,36 @@ const FlexibleTable = ({
 	}
 	: {};
 
+	const renderExportButtons = () => {
+		if (!internalExportExcel && !internalExportPdf && !externalExportExcel && !externalExportPdf) return null;
+	
+		return (
+			<div className="d-flex align-items-center gap-4 export-buttons">
+				{internalExportExcel && (
+					<button className="bg-transparent border-none p-0 m-0" onClick={() => exportToExcel(columns, sortedData)}>
+						<ExcelIcon color="#fff" />
+					</button>
+				)}
+				{internalExportPdf && (
+					<button className="bg-transparent border-none p-0 m-0" onClick={() => exportToPdf(columns, sortedData)}>
+						<PdfIcon color="#fff" />
+					</button>
+				)}
+				{externalExportExcel && (
+					<button className="bg-transparent border-none p-0 m-0" onClick={() => externalExportExcel({ search: searchTerms, sort: sortConfig })}>
+						<ExcelIcon color="#fff" />
+					</button>
+				)}
+				{externalExportPdf && (
+					<button className="bg-transparent border-none p-0 m-0" onClick={() => externalExportPdf({ search: searchTerms, sort: sortConfig })}>
+						<PdfIcon color="#fff" />
+					</button>
+				)}
+			</div>
+		);
+	};
+	
+
 	return (
 		<React.Fragment>
 			<div className={`table-wrapper ${loading ? "loading-active" : ""}`}>
@@ -216,6 +256,9 @@ const FlexibleTable = ({
 				}}>
 					<thead style={theadStyle}>
 						<tr>
+						{exportButtonLocation === "start" || exportButtonLocation === "both" ? (
+      <th className="table-export-start">{renderExportButtons()}</th>
+    ) : null}
 							{columns.map((column, index) => (
 								<th
 									key={column.key}
@@ -294,6 +337,9 @@ const FlexibleTable = ({
 								</th>
 							))}
 							{actions && <th className="table-actions"></th>}
+							{exportButtonLocation === "end" || exportButtonLocation === "both" ? (
+      <th className="table-export-end">{renderExportButtons()}</th>
+    ) : null}
 						</tr>
 					</thead>
 					<tbody>
@@ -449,6 +495,7 @@ FlexibleTable.propTypes = {
 	externalSearch: PropTypes.bool,
 	searchPlaceholder: PropTypes.string,
 	loading: PropTypes.bool,
+	loadingComponent: PropTypes.node,
 	onRowClick: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
 	changePage: PropTypes.func.isRequired,
 	page: PropTypes.number.isRequired,
@@ -461,7 +508,11 @@ FlexibleTable.propTypes = {
 	handleMultiSelect: PropTypes.func,
 	lineStriped: PropTypes.bool,
 	stickyHeader: PropTypes.bool,
-	loadingComponent: PropTypes.node,
+	internalExportExcel: PropTypes.bool,
+	internalExportPdf: PropTypes.bool,
+	externalExportPdf: PropTypes.func,
+	externalExportExcel: PropTypes.func,
+	exportButtonLocation: PropTypes.oneOf(["start", "end"]),
 };
 
 export default FlexibleTable;

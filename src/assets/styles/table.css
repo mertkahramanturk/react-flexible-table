@@ -297,3 +297,43 @@ tr:hover {
     height: auto;
   }
 }
+
+
+
+.bg-transparent{
+	background-color: transparent;
+}
+.border-none{
+	border: none;
+}
+.p-0{
+	padding: 0px;
+}
+.m-0 {
+	margin: 0px;
+}
+
+.gap-2{
+	gap: 0.5rem;
+}
+.gap-4{
+	gap: 1rem;
+}
+.d-flex{
+	display: flex;
+}
+.justify-content-center{
+	justify-content: center;
+}
+.align-items-center{
+	align-items: center;
+}
+.flex-wrap{
+	flex-wrap: wrap;
+}
+.text-primary{
+	color: #0f0f0f;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
