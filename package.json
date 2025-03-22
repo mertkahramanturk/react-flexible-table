@@ -1,15 +1,15 @@
 {
   "name": "react-flexible-table",
   "description": "A highly customizable and flexible table component for React",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
   "files": [
     "dist",
-		"README.md",
+    "README.md",
     "package.json",
-		"LICENSE.md"
+    "LICENSE.md"
   ],
   "scripts": {
     "build": "rollup -c",
